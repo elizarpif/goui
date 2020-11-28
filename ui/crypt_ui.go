@@ -2,54 +2,54 @@
 package ui
 
 import (
-	"github.com/therecipe/qt/widgets"
 	"github.com/therecipe/qt/core"
+	"github.com/therecipe/qt/widgets"
 )
 
 type UICryptMainWindow struct {
-	Centralwidget *widgets.QWidget
-	TabWidget *widgets.QTabWidget
-	Lab3 *widgets.QWidget
-	PlainTextEdit3 *widgets.QPlainTextEdit
-	PlainTextEdit *widgets.QPlainTextEdit
-	PlainTextEdit2 *widgets.QPlainTextEdit
-	Group3 *widgets.QGroupBox
-	Line3 *widgets.QLineEdit
-	Answer3 *widgets.QLineEdit
-	Label3 *widgets.QLabel
-	BaseBox *widgets.QGroupBox
-	BinaryRadio *widgets.QRadioButton
-	DecRadio *widgets.QRadioButton
-	Group1 *widgets.QGroupBox
-	Line31 *widgets.QLineEdit
-	Answer *widgets.QLineEdit
-	Label31 *widgets.QLabel
-	Group2 *widgets.QGroupBox
-	LinePoly2 *widgets.QLineEdit
-	LinePoly1 *widgets.QLineEdit
-	Answer2 *widgets.QLineEdit
-	Label32 *widgets.QLabel
-	RadioPolynom *widgets.QRadioButton
-	RadioElem *widgets.QRadioButton
+	Centralwidget     *widgets.QWidget
+	TabWidget         *widgets.QTabWidget
+	Lab3              *widgets.QWidget
+	PlainTextEdit3    *widgets.QPlainTextEdit
+	PlainTextEdit     *widgets.QPlainTextEdit
+	PlainTextEdit2    *widgets.QPlainTextEdit
+	Group3            *widgets.QGroupBox
+	Line3             *widgets.QLineEdit
+	Answer3           *widgets.QLineEdit
+	Label3            *widgets.QLabel
+	BaseBox           *widgets.QGroupBox
+	BinaryRadio       *widgets.QRadioButton
+	DecRadio          *widgets.QRadioButton
+	Group1            *widgets.QGroupBox
+	Line31            *widgets.QLineEdit
+	Answer            *widgets.QLineEdit
+	Label31           *widgets.QLabel
+	Group2            *widgets.QGroupBox
+	LinePoly2         *widgets.QLineEdit
+	LinePoly1         *widgets.QLineEdit
+	Answer2           *widgets.QLineEdit
+	Label32           *widgets.QLabel
+	RadioPolynom      *widgets.QRadioButton
+	RadioElem         *widgets.QRadioButton
 	Lab3LabelMultiply *widgets.QLabel
-	Lab2 *widgets.QWidget
-	LabelGCD *widgets.QLabel
-	GcdA *widgets.QLineEdit
-	GcdB *widgets.QLineEdit
-	GcdY *widgets.QLineEdit
-	Gcd *widgets.QLineEdit
-	GcdX *widgets.QLineEdit
-	LabelGcdPlus *widgets.QLabel
-	LabelGcdEq *widgets.QLabel
-	BinPowLabel *widgets.QLabel
-	BinPowA *widgets.QLineEdit
-	BinPowB *widgets.QLineEdit
-	LabelBinPowEq *widgets.QLabel
-	BinPow *widgets.QLineEdit
-	LabelLab2Modulo *widgets.QLabel
-	Lab2Modulo *widgets.QLineEdit
-	Menubar *widgets.QMenuBar
-	Statusbar *widgets.QStatusBar
+	Lab2              *widgets.QWidget
+	LabelGCD          *widgets.QLabel
+	GcdA              *widgets.QLineEdit
+	GcdB              *widgets.QLineEdit
+	GcdY              *widgets.QLineEdit
+	Gcd               *widgets.QLineEdit
+	GcdX              *widgets.QLineEdit
+	LabelGcdPlus      *widgets.QLabel
+	LabelGcdEq        *widgets.QLabel
+	BinPowLabel       *widgets.QLabel
+	BinPowA           *widgets.QLineEdit
+	BinPowB           *widgets.QLineEdit
+	LabelBinPowEq     *widgets.QLabel
+	BinPow            *widgets.QLineEdit
+	LabelLab2Modulo   *widgets.QLabel
+	Lab2Modulo        *widgets.QLineEdit
+	Menubar           *widgets.QMenuBar
+	Statusbar         *widgets.QStatusBar
 }
 
 func (this *UICryptMainWindow) SetupUI(MainWindow *widgets.QMainWindow) {
@@ -203,13 +203,12 @@ func (this *UICryptMainWindow) SetupUI(MainWindow *widgets.QMainWindow) {
 	this.Statusbar.SetObjectName("Statusbar")
 	MainWindow.SetStatusBar(this.Statusbar)
 
-
-    this.RetranslateUi(MainWindow)
+	this.RetranslateUi(MainWindow)
 	this.TabWidget.SetCurrentIndex(1)
 }
 
 func (this *UICryptMainWindow) RetranslateUi(MainWindow *widgets.QMainWindow) {
-    _translate := core.QCoreApplication_Translate
+	_translate := core.QCoreApplication_Translate
 	MainWindow.SetWindowTitle(_translate("MainWindow", "Lab", "", -1))
 	this.PlainTextEdit3.SetPlainText(_translate("MainWindow", "Напишите функцию для поиска мультипликативного обратного для элемента из 𝐺𝐹(256).", "", -1))
 	this.PlainTextEdit.SetPlainText(_translate("MainWindow", "Напишите функцию, представляющую элемент из 𝐺𝐹(256) в полиномиальной форме.", "", -1))

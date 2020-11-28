@@ -41,7 +41,7 @@ func TestNewBinaryPolynom(t *testing.T) {
 		{
 			name: "check build",
 			args: args{num: 10},
-			want: &BinaryPolynom{numbers: []int{0,1,0,1}},
+			want: &BinaryPolynom{numbers: []int{0, 1, 0, 1}},
 		},
 	}
 	for _, tt := range tests {
@@ -63,9 +63,9 @@ func TestBinaryPolynom_String(t *testing.T) {
 		want   string
 	}{
 		{
-			name: "check",
-			fields: fields{numbers: []int{0,1,0,1}},
-			want: "x+x^3",
+			name:   "check",
+			fields: fields{numbers: []int{0, 1, 0, 1}},
+			want:   "x+x^3",
 		},
 	}
 	for _, tt := range tests {

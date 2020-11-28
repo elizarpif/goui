@@ -51,18 +51,6 @@ func ModIn(a int, m int) (int, error) {
 	return x % m, nil
 }
 
-/*
-int binpow (int a, int n) {
-	int res = 1;
-	while (n) {
-		if (n & 1)
-			res *= a;
-		a *= a;
-		n >>= 1;
-	}
-	return res;
-}
-*/
 // бинарное возведение в степень
 func BinPow(a int, n int, m int) int {
 	res := 1

@@ -38,7 +38,7 @@ func TestModIn(t *testing.T) {
 
 func TestBinPow(t *testing.T) {
 	type args struct {
-		a int
+		a    int
 		n, m int
 	}
 	tests := []struct {

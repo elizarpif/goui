@@ -8,6 +8,7 @@ import (
 	"github.com/elizarpif/goui/internal/binary"
 	"github.com/elizarpif/goui/internal/lab2"
 	"github.com/elizarpif/goui/internal/lab3"
+
 	"github.com/elizarpif/logger"
 )
 
@@ -16,7 +17,7 @@ func (w *Window) systemBases() {
 	w.uiWindow.Answer.SetText("")
 	w.uiWindow.Answer2.SetText("")
 
-	if w.uiWindow.BinaryRadio.IsChecked(){
+	if w.uiWindow.BinaryRadio.IsChecked() {
 		w.uiWindow.Line31.SetInputMask("BBBBBBBB")
 		w.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
 		w.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
@@ -33,18 +34,9 @@ func (w *Window) systemBases() {
 
 func (window *Window) ConnectLab3(ctx context.Context) {
 	window.uiWindow.BinaryRadio.SetChecked(true)
-	window.systemBases()
 
 	window.uiWindow.Line31.ConnectTextChanged(func(text string) {
 		window.lab31(ctx)
-	})
-
-	window.uiWindow.BinaryRadio.ConnectClicked(func(checked bool) {
-		window.systemBases()
-	})
-
-	window.uiWindow.DecRadio.ConnectClicked(func(checked bool) {
-		window.systemBases()
 	})
 
 	window.uiWindow.LinePoly1.ConnectTextChanged(func(text string) {
@@ -184,4 +176,3 @@ func (window *Window) lab31(ctx context.Context) {
 	polynom := lab3.NewBinaryPolynom(num)
 	w.Answer.SetText(polynom.String())
 }
-
