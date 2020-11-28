@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/elizarpif/goui/window"
-	"github.com/elizarpif/logger"
 	"os"
 
-	"github.com/elizarpif/goui/ui"
+	"github.com/elizarpif/logger"
 	"github.com/therecipe/qt/widgets"
+
+	"github.com/elizarpif/goui/ui"
+	"github.com/elizarpif/goui/window"
 )
 
 func main() {
