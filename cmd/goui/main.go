@@ -17,7 +17,7 @@ func main() {
 	// needs to be called once before you can start using the QWidgets
 	app := widgets.NewQApplication(len(os.Args), os.Args)
 
-	// create a mainWindow
+	// create a mainWindowhttps://github.com/elizarpif/goui/blob/develop/screenshots/31.png
 	// with a minimum size of 250*200
 	// and sets the title to "Hello Widgets Example"
 	mainWindow := widgets.NewQMainWindow(nil, 0)
