@@ -28,7 +28,9 @@ type UICryptMainWindow struct {
 	PlainTextEdit *widgets.QPlainTextEdit
 	PlainTextEdit2 *widgets.QPlainTextEdit
 	PlainTextEdit3 *widgets.QPlainTextEdit
-	LabelLab *widgets.QLabel
+	BaseBox *widgets.QGroupBox
+	BinaryRadio *widgets.QRadioButton
+	DecRadio *widgets.QRadioButton
 	Menubar *widgets.QMenuBar
 	Statusbar *widgets.QStatusBar
 }
@@ -63,7 +65,7 @@ func (this *UICryptMainWindow) SetupUI(MainWindow *widgets.QMainWindow) {
 	this.RadioPolynom = widgets.NewQRadioButton(this.Group2)
 	this.RadioPolynom.SetObjectName("RadioPolynom")
 	this.RadioPolynom.SetGeometry(core.NewQRect4(340, 150, 161, 27))
-	this.RadioPolynom.SetChecked(true)
+	this.RadioPolynom.SetChecked(false)
 	this.RadioElem = widgets.NewQRadioButton(this.Group2)
 	this.RadioElem.SetObjectName("RadioElem")
 	this.RadioElem.SetGeometry(core.NewQRect4(340, 190, 161, 27))
@@ -108,9 +110,18 @@ func (this *UICryptMainWindow) SetupUI(MainWindow *widgets.QMainWindow) {
 	this.PlainTextEdit3.SetObjectName("PlainTextEdit3")
 	this.PlainTextEdit3.SetGeometry(core.NewQRect4(700, 630, 221, 241))
 	this.PlainTextEdit3.SetReadOnly(true)
-	this.LabelLab = widgets.NewQLabel(this.Centralwidget, core.Qt__Widget)
-	this.LabelLab.SetObjectName("LabelLab")
-	this.LabelLab.SetGeometry(core.NewQRect4(430, 40, 251, 61))
+	this.BaseBox = widgets.NewQGroupBox(this.Centralwidget)
+	this.BaseBox.SetObjectName("BaseBox")
+	this.BaseBox.SetGeometry(core.NewQRect4(320, 10, 351, 80))
+	this.BaseBox.SetStyleSheet("QGroupBox {\n  font: medium Ubuntu;\n  font-size: 20px;\n  color: #d998ce;  \n  font-weight: bold;\n  \t border-style: none none none none ; \n\tborder-width: 2px ;\n\tborder-radius: 0px;\n\tborder-color: #ae32a0;\n  padding: 4px;\n  margin-top: 16px;\n  padding: 1px;\n}")
+	this.BinaryRadio = widgets.NewQRadioButton(this.BaseBox)
+	this.BinaryRadio.SetObjectName("BinaryRadio")
+	this.BinaryRadio.SetGeometry(core.NewQRect4(10, 40, 131, 27))
+	this.BinaryRadio.SetChecked(false)
+	this.DecRadio = widgets.NewQRadioButton(this.BaseBox)
+	this.DecRadio.SetObjectName("DecRadio")
+	this.DecRadio.SetGeometry(core.NewQRect4(180, 40, 161, 27))
+	this.DecRadio.SetChecked(true)
 	MainWindow.SetCentralWidget(this.Centralwidget)
 	this.Menubar = widgets.NewQMenuBar(MainWindow)
 	this.Menubar.SetObjectName("Menubar")
@@ -145,5 +156,7 @@ func (this *UICryptMainWindow) RetranslateUi(MainWindow *widgets.QMainWindow) {
 	this.PlainTextEdit.SetPlainText(_translate("MainWindow", "Напишите функцию, представляющую элемент из 𝐺𝐹(256) в полиномиальной форме.", "", -1))
 	this.PlainTextEdit2.SetPlainText(_translate("MainWindow", "Напишите функцию\n    - умножения двух двоичных многочленов; \n    - умножения двух элементов из 𝐺𝐹(256).", "", -1))
 	this.PlainTextEdit3.SetPlainText(_translate("MainWindow", "Напишите функцию для поиска мультипликативного обратного для элемента из 𝐺𝐹(256).", "", -1))
-	this.LabelLab.SetText(_translate("MainWindow", "Lab3", "", -1))
+	this.BaseBox.SetTitle(_translate("MainWindow", "", "", -1))
+	this.BinaryRadio.SetText(_translate("MainWindow", "Двоичная", "", -1))
+	this.DecRadio.SetText(_translate("MainWindow", "Десятичная", "", -1))
 }

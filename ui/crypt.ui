@@ -197,7 +197,7 @@ QRadioButton {
       <string>Многочлены</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioElem">
@@ -382,18 +382,65 @@ QRadioButton {
 </string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelLab">
+   <widget class="QGroupBox" name="baseBox">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>40</y>
-      <width>251</width>
-      <height>61</height>
+      <x>320</x>
+      <y>10</y>
+      <width>351</width>
+      <height>80</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Lab3</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  font: medium Ubuntu;
+  font-size: 20px;
+  color: #d998ce;  
+  font-weight: bold;
+  	 border-style: none none none none ; 
+	border-width: 2px ;
+	border-radius: 0px;
+	border-color: #ae32a0;
+  padding: 4px;
+  margin-top: 16px;
+  padding: 1px;
+}</string>
     </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QRadioButton" name="binaryRadio">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>131</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Двоичная </string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="decRadio">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>40</y>
+       <width>161</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Десятичная</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

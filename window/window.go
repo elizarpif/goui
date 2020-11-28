@@ -3,12 +3,13 @@ package window
 import (
 	"context"
 	"fmt"
+	"strconv"
+
 	"github.com/elizarpif/goui/internal/binary"
 	"github.com/elizarpif/goui/internal/lab2"
 	"github.com/elizarpif/goui/internal/lab3"
 	"github.com/elizarpif/goui/ui"
 	"github.com/elizarpif/logger"
-	"strconv"
 )
 
 type Window struct {
@@ -22,13 +23,44 @@ func NewWindow(ui *ui.UICryptMainWindow) *Window {
 }
 
 func (window *Window) Connect(ctx context.Context) {
-	window.uiWindow.Line1.SetInputMask("BBBBBBBB")
-	window.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
-	window.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
-	// window.uiWindow.Line3.SetInputMask("BBBBBBBB")
+	if window.uiWindow.BinaryRadio.IsChecked(){
+		window.uiWindow.Line1.SetInputMask("BBBBBBBB")
+		window.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
+		window.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
+		window.uiWindow.Line3.SetInputMask("BBBBBBBB")
+	}
 
 	window.uiWindow.Line1.ConnectTextChanged(func(text string) {
 		window.lab31(ctx)
+	})
+
+	window.uiWindow.BinaryRadio.ConnectClicked(func(checked bool) {
+		if checked{
+			window.uiWindow.Line1.SetInputMask("BBBBBBBB")
+			window.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
+			window.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
+			window.uiWindow.Line3.SetInputMask("BBBBBBBB")
+		} else {
+			window.uiWindow.Line1.SetInputMask("")
+			window.uiWindow.LinePoly2.SetInputMask("")
+			window.uiWindow.LinePoly1.SetInputMask("")
+			window.uiWindow.Line3.SetInputMask("")
+		}
+	})
+
+	window.uiWindow.DecRadio.ConnectClicked(func(checked bool) {
+		if checked{
+			window.uiWindow.Line1.SetInputMask("")
+			window.uiWindow.LinePoly2.SetInputMask("")
+			window.uiWindow.LinePoly1.SetInputMask("")
+			window.uiWindow.Line3.SetInputMask("")
+		} else {
+			window.uiWindow.Line1.SetInputMask("BBBBBBBB")
+			window.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
+			window.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
+			window.uiWindow.Line3.SetInputMask("BBBBBBBB")
+
+		}
 	})
 
 	window.uiWindow.LinePoly1.ConnectTextChanged(func(text string) {
@@ -56,6 +88,21 @@ func (window *Window) Connect(ctx context.Context) {
 	})
 }
 
+func (w *Window) getNumInBase(str string) (int, error) {
+	if w.uiWindow.BinaryRadio.IsChecked() {
+		return binary.ToBinary(str)
+	}
+	return strconv.Atoi(str)
+}
+
+func (w *Window) setNumInBase(num int) string {
+	if w.uiWindow.BinaryRadio.IsChecked() {
+		return binary.ToBinaryStr(num)
+	}
+
+	return strconv.Itoa(num)
+}
+
 func (w *Window) lab33(ctx context.Context) {
 	uiw := w.uiWindow
 	log := logger.GetLogger(ctx)
@@ -68,7 +115,7 @@ func (w *Window) lab33(ctx context.Context) {
 		return
 	}
 
-	num, err := strconv.Atoi(text)
+	num, err := w.getNumInBase(text)
 	if err != nil {
 		log.WithError(err).WithField("text", text).Error("cannot convert to number")
 		uiw.Answer3.SetText(fmt.Sprintf("cannot convert to number"))
@@ -81,7 +128,7 @@ func (w *Window) lab33(ctx context.Context) {
 	if err != nil {
 		uiw.Answer3.SetText(err.Error())
 	} else {
-		uiw.Answer3.SetText(fmt.Sprintf("%d", inv))
+		uiw.Answer3.SetText(w.setNumInBase(inv))
 	}
 }
 
@@ -97,7 +144,7 @@ func (w *Window) lab32(ctx context.Context) {
 		return
 	}
 
-	num1, err := binary.ToBinary(text1)
+	num1, err := w.getNumInBase(text1)
 	if err != nil {
 		log.WithError(err).WithField("text", text1).Error("cannot convert to binary")
 		return
@@ -111,7 +158,7 @@ func (w *Window) lab32(ctx context.Context) {
 		return
 	}
 
-	num2, err := binary.ToBinary(text2)
+	num2, err := w.getNumInBase(text2)
 	if err != nil {
 		log.WithError(err).WithField("text", text2).Error("cannot convert to binary")
 		return
@@ -127,7 +174,7 @@ func (w *Window) lab32(ctx context.Context) {
 	}
 
 	if uiw.RadioElem.IsChecked() {
-		uiw.Answer2.SetText(binary.ToBinaryStr(p.GetNum()))
+		uiw.Answer2.SetText(w.setNumInBase(p.GetNum()))
 	}
 }
 
@@ -152,7 +199,7 @@ func (window *Window) lab31(ctx context.Context) {
 		return
 	}
 
-	num, err := binary.ToBinary(text)
+	num, err := window.getNumInBase(text)
 	if err != nil {
 		log.WithError(err).WithField("text", text).Error("cannot convert to binary")
 		w.Answer.SetText(fmt.Sprintf("cannot convert to binary"))
