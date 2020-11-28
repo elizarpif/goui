@@ -3,10 +3,9 @@ package window
 import (
 	"context"
 	"fmt"
-
+	"github.com/elizarpif/goui/internal/binary"
 	"github.com/elizarpif/logger"
 
-	"github.com/elizarpif/goui/internal/binary"
 	"github.com/elizarpif/goui/internal/lab3"
 	"github.com/elizarpif/goui/ui"
 )
@@ -22,8 +21,12 @@ func NewWindow(ui *ui.UICryptMainWindow) *Window {
 }
 
 func (window *Window) Connect(ctx context.Context) {
+	window.uiWindow.LineEdit.SetInputMask("BBBBBBBB")
 	window.uiWindow.Btn.ConnectClicked(func(bool) {
 		// widgets.QMessageBox_Information(nil, "OK", uiWindow.LineEdit.Text(), widgets.QMessageBox__Ok, widgets.QMessageBox__Ok)
+		window.ButtonReact(ctx)
+	})
+	window.uiWindow.LineEdit.ConnectTextChanged(func(text string) {
 		window.ButtonReact(ctx)
 	})
 }
@@ -44,24 +47,20 @@ func (window *Window) lab31(ctx context.Context) {
 	text := w.LineEdit.Text()
 
 	if text == "" {
+		w.AnswerLine.SetText("")
 		log.Warning("no input text")
 		return
 	}
 
-	isBin := binary.IsBinary(text)
-	if !isBin {
-		var err error
-		text, err = binary.ToBinary(text)
-
-		if err != nil {
-			log.WithError(err).WithField("text", text).Error("cannot convert to binary")
-			window.BinaryNumError()
-			return
-		}
+	num, err := binary.ToBinary(text)
+	if err != nil {
+		log.WithError(err).WithField("text", text).Error("cannot convert to binary")
+		window.BinaryNumError()
+		return
 	}
 
-	res := lab3.PolynomForm(text)
-	w.AnswerLine.SetText(res)
+	polynom := lab3.NewBinaryPolynom(num)
+	w.AnswerLine.SetText(polynom.String())
 }
 
 func (w *Window) BinaryNumError() {
