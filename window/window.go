@@ -2,10 +2,13 @@ package window
 
 import (
 	"context"
+	"fmt"
+
+	"github.com/elizarpif/logger"
+
 	"github.com/elizarpif/goui/internal/binary"
 	"github.com/elizarpif/goui/internal/lab3"
 	"github.com/elizarpif/goui/ui"
-	"github.com/elizarpif/logger"
 )
 
 type Window struct {
@@ -28,7 +31,10 @@ func (window *Window) Connect(ctx context.Context) {
 func (window *Window) ButtonReact(ctx context.Context) {
 	if window.uiWindow.Lab31.IsChecked() {
 		window.lab31(ctx)
+		return
 	}
+
+	window.uiWindow.AnswerLine.SetText("")
 }
 
 func (window *Window) lab31(ctx context.Context) {
@@ -49,10 +55,15 @@ func (window *Window) lab31(ctx context.Context) {
 
 		if err != nil {
 			log.WithError(err).WithField("text", text).Error("cannot convert to binary")
+			window.BinaryNumError()
 			return
 		}
 	}
 
 	res := lab3.PolynomForm(text)
 	w.AnswerLine.SetText(res)
+}
+
+func (w *Window) BinaryNumError() {
+	w.uiWindow.AnswerLine.SetText(fmt.Sprintf("cannot convert to binary"))
 }
