@@ -8,3 +8,5 @@
 ## Скриншоты
 
 ![Lab3](https://github.com/elizarpif/goui/blob/develop/screenshots/32.png)
+
+![Lab2](https://github.com/elizarpif/goui/blob/develop/screenshots/lab2.png)
