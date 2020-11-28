@@ -4,9 +4,11 @@ import (
 	"context"
 	"fmt"
 	"github.com/elizarpif/goui/internal/binary"
+	"github.com/elizarpif/goui/internal/lab2"
 	"github.com/elizarpif/goui/internal/lab3"
 	"github.com/elizarpif/goui/ui"
 	"github.com/elizarpif/logger"
+	"strconv"
 )
 
 type Window struct {
@@ -23,7 +25,7 @@ func (window *Window) Connect(ctx context.Context) {
 	window.uiWindow.Line1.SetInputMask("BBBBBBBB")
 	window.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
 	window.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
-	window.uiWindow.Line3.SetInputMask("BBBBBBBB")
+	// window.uiWindow.Line3.SetInputMask("BBBBBBBB")
 
 	window.uiWindow.Line1.ConnectTextChanged(func(text string) {
 		window.lab31(ctx)
@@ -48,6 +50,39 @@ func (window *Window) Connect(ctx context.Context) {
 	window.uiWindow.RadioPolynom.ConnectClicked(func(checked bool) {
 		window.lab32(ctx)
 	})
+
+	window.uiWindow.Line3.ConnectTextChanged(func(text string) {
+		window.lab33(ctx)
+	})
+}
+
+func (w *Window) lab33(ctx context.Context) {
+	uiw := w.uiWindow
+	log := logger.GetLogger(ctx)
+
+	text := uiw.Line3.Text()
+
+	if text == "" {
+		uiw.Answer3.SetText("")
+		log.Warning("no input text")
+		return
+	}
+
+	num, err := strconv.Atoi(text)
+	if err != nil {
+		log.WithError(err).WithField("text", text).Error("cannot convert to number")
+		uiw.Answer3.SetText(fmt.Sprintf("cannot convert to number"))
+		return
+	}
+
+	modulo := 256
+
+	inv, err := lab2.ModIn(num, modulo)
+	if err != nil {
+		uiw.Answer3.SetText(err.Error())
+	} else {
+		uiw.Answer3.SetText(fmt.Sprintf("%d", inv))
+	}
 }
 
 func (w *Window) lab32(ctx context.Context) {
