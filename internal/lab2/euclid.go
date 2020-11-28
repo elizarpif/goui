@@ -27,6 +27,16 @@ func RecursiveGCD(a int, b int) (int, int, int) {
 	return g, x - (b/a)*y, y
 }
 
+func RecursiveGCDMod(a, b, m int) (int, int, int) {
+	gcd, x, y := RecursiveGCD(a, b)
+
+	x = (x%m + m) % m
+	y = (y%m + m) % m
+	gcd = (gcd%m + m) % m
+
+	return gcd, x, y
+}
+
 // gcd (a, m) = 1
 // gcd(a, 256) = 1
 // ax + by = gcd(a,b)
@@ -37,20 +47,34 @@ func ModIn(a int, m int) (int, error) {
 	if g != 1 {
 		return 0, errors.New("modular inverse does not exist")
 	}
-	x = (x % m + m) % m
+	x = (x%m + m) % m
 	return x % m, nil
 }
 
+/*
+int binpow (int a, int n) {
+	int res = 1;
+	while (n) {
+		if (n & 1)
+			res *= a;
+		a *= a;
+		n >>= 1;
+	}
+	return res;
+}
+*/
 // бинарное возведение в степень
-func BinPow(a int, n int) int{
+func BinPow(a int, n int, m int) int {
 	res := 1
 
-	for n != 0{
-		if n&1 != 0 {
+	for n > 0 {
+		if n&1 > 0 {
 			res *= a
+			res %= m
 		}
 
 		a *= a
+		a %= m
 		n >>= 1
 	}
 

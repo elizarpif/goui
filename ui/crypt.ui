@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>951</width>
-    <height>958</height>
+    <width>1024</width>
+    <height>1030</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,298 +101,136 @@ QRadioButton {
     color:  #ae32a0; 
 }</string>
    </property>
-   <widget class="QGroupBox" name="group2">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>360</y>
-      <width>651</width>
-      <height>251</height>
+      <x>20</x>
+      <y>0</y>
+      <width>961</width>
+      <height>951</height>
      </rect>
     </property>
-    <property name="title">
-     <string/>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <widget class="QLineEdit" name="linePoly2">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>70</y>
-       <width>271</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="inputMask">
-      <string/>
-     </property>
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>70</y>
-       <width>16</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>*</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="linePoly1">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>261</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="inputMask">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="answer2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>160</y>
-       <width>261</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label32">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>101</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>2</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioPolynom">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>150</y>
-       <width>161</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Многочлены</string>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioElem">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>190</y>
-       <width>161</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Элементы</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="multiply">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>80</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>*</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="group1">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>100</y>
-      <width>651</width>
-      <height>251</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QLineEdit" name="line1">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>60</y>
-       <width>261</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="inputMask">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="answer">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>140</y>
-       <width>261</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label31">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>101</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="group3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>620</y>
-      <width>651</width>
-      <height>251</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QLineEdit" name="line3">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>60</y>
-       <width>261</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="inputMask">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="answer3">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>140</y>
-       <width>261</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label33">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>101</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>110</y>
-      <width>221</width>
-      <height>241</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="plainText">
-     <string>Напишите функцию, представляющую элемент из 𝐺𝐹(256) в полиномиальной форме.</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>370</y>
-      <width>221</width>
-      <height>241</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="plainText">
-     <string>Напишите функцию
+    <widget class="QWidget" name="lab3">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="plainTextEdit3">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>610</y>
+        <width>221</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string> Напишите функцию для поиска мультипликативного обратного для элемента из 𝐺𝐹(256).
+</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>90</y>
+        <width>221</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Напишите функцию, представляющую элемент из 𝐺𝐹(256) в полиномиальной форме.</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>350</y>
+        <width>221</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Напишите функцию
     - умножения двух двоичных многочленов; 
     - умножения двух элементов из 𝐺𝐹(256).</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>630</y>
-      <width>221</width>
-      <height>241</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="plainText">
-     <string> Напишите функцию для поиска мультипликативного обратного для элемента из 𝐺𝐹(256).
-</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="baseBox">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>10</y>
-      <width>351</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QGroupBox {
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="group3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>600</y>
+        <width>651</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="line3">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>60</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="answer3">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>140</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>101</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="baseBox">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>-10</y>
+        <width>351</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
   font: medium Ubuntu;
   font-size: 20px;
   color: #d998ce;  
@@ -405,41 +243,408 @@ QRadioButton {
   margin-top: 16px;
   padding: 1px;
 }</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QRadioButton" name="binaryRadio">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>131</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Двоичная </string>
-     </property>
-     <property name="checked">
-      <bool>false</bool>
-     </property>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QRadioButton" name="binaryRadio">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>131</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Двоичная </string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="decRadio">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>161</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Десятичная</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="group1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>651</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="line31">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>60</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="answer">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>140</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label31">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="group2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>340</y>
+        <width>651</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLineEdit" name="linePoly2">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>70</y>
+         <width>271</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linePoly1">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="answer2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>160</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label32">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioPolynom">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>150</y>
+         <width>161</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Многочлены</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioElem">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>190</y>
+         <width>161</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Элементы</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lab3LabelMultiply">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>80</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>*</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QRadioButton" name="decRadio">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>40</y>
-       <width>161</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Десятичная</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
+    <widget class="QWidget" name="lab2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+     <widget class="QLabel" name="labelGCD">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>361</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Расширенный алгоритм Евклида</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="gcdA">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="gcdB">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="gcdY">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="gcd">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="gcdX">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGcdPlus">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>110</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGcdEq">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>110</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="binPowLabel">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>210</y>
+        <width>361</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Бинарное возведение в степень</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="binPowA">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>290</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="binPowB">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>260</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelBinPowEq">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>290</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="binPow">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>290</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelLab2Modulo">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>40</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Модуль</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lab2Modulo">
+      <property name="geometry">
+       <rect>
+        <x>800</x>
+        <y>110</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>256</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -448,7 +653,7 @@ QRadioButton {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>951</width>
+     <width>1024</width>
      <height>28</height>
     </rect>
    </property>

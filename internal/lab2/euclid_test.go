@@ -35,3 +35,32 @@ func TestModIn(t *testing.T) {
 		})
 	}
 }
+
+func TestBinPow(t *testing.T) {
+	type args struct {
+		a int
+		n, m int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "check",
+			args: args{
+				a: 3,
+				n: 2,
+				m: 256,
+			},
+			want: 9,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := BinPow(tt.args.a, tt.args.n, tt.args.m); got != tt.want {
+				t.Errorf("BinPow() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
