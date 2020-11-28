@@ -78,13 +78,7 @@ func (w *Window) gcd(ctx context.Context) {
 		return
 	}
 
-	modulo, err := strconv.Atoi(w.uiWindow.Lab2Modulo.Text())
-	if err != nil {
-		logger.GetLogger(ctx).WithError(err).Error("cannot convert modulo to num")
-		return
-	}
-
-	gcd, x, y := lab2.RecursiveGCDMod(num1, num2, modulo)
+	gcd, x, y := lab2.RecursiveGCD(num1, num2)
 
 	w.uiWindow.Gcd.SetText(strconv.Itoa(gcd))
 	w.uiWindow.GcdX.SetText(strconv.Itoa(x))
