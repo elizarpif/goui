@@ -1,4 +1,4 @@
-module github.com/elizarpif/gotk
+module github.com/elizarpif/goui
 
 go 1.14
 
