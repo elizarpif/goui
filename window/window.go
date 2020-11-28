@@ -4,10 +4,9 @@ import (
 	"context"
 	"fmt"
 	"github.com/elizarpif/goui/internal/binary"
-	"github.com/elizarpif/logger"
-
 	"github.com/elizarpif/goui/internal/lab3"
 	"github.com/elizarpif/goui/ui"
+	"github.com/elizarpif/logger"
 )
 
 type Window struct {
@@ -21,33 +20,99 @@ func NewWindow(ui *ui.UICryptMainWindow) *Window {
 }
 
 func (window *Window) Connect(ctx context.Context) {
-	window.uiWindow.LineEdit.SetInputMask("BBBBBBBB")
-	window.uiWindow.Btn.ConnectClicked(func(bool) {
-		// widgets.QMessageBox_Information(nil, "OK", uiWindow.LineEdit.Text(), widgets.QMessageBox__Ok, widgets.QMessageBox__Ok)
-		window.ButtonReact(ctx)
+	window.uiWindow.Line1.SetInputMask("BBBBBBBB")
+	window.uiWindow.LinePoly2.SetInputMask("BBBBBBBB")
+	window.uiWindow.LinePoly1.SetInputMask("BBBBBBBB")
+	window.uiWindow.Line3.SetInputMask("BBBBBBBB")
+
+	window.uiWindow.Line1.ConnectTextChanged(func(text string) {
+		window.lab31(ctx)
 	})
-	window.uiWindow.LineEdit.ConnectTextChanged(func(text string) {
-		window.ButtonReact(ctx)
+
+	window.uiWindow.LinePoly1.ConnectTextChanged(func(text string) {
+		if window.uiWindow.LinePoly1.Text() != "" && window.uiWindow.LinePoly2.Text() != "" {
+			window.lab32(ctx)
+		}
+	})
+
+	window.uiWindow.LinePoly2.ConnectTextChanged(func(text string) {
+		if window.uiWindow.LinePoly1.Text() != "" && window.uiWindow.LinePoly2.Text() != "" {
+			window.lab32(ctx)
+		}
+	})
+
+	window.uiWindow.RadioElem.ConnectClicked(func(checked bool) {
+		window.lab32(ctx)
+	})
+
+	window.uiWindow.RadioPolynom.ConnectClicked(func(checked bool) {
+		window.lab32(ctx)
 	})
 }
 
-func (window *Window) ButtonReact(ctx context.Context) {
-	if window.uiWindow.Lab31.IsChecked() {
-		window.lab31(ctx)
+func (w *Window) lab32(ctx context.Context) {
+	uiw := w.uiWindow
+	log := logger.GetLogger(ctx)
+
+	text1 := uiw.LinePoly1.Text()
+
+	if text1 == "" {
+		uiw.Answer2.SetText("")
+		log.Warning("no input text")
 		return
 	}
 
-	window.uiWindow.AnswerLine.SetText("")
+	num1, err := binary.ToBinary(text1)
+	if err != nil {
+		log.WithError(err).WithField("text", text1).Error("cannot convert to binary")
+		return
+	}
+
+	text2 := uiw.LinePoly2.Text()
+
+	if text2 == "" {
+		uiw.Answer2.SetText("")
+		log.Warning("no input text")
+		return
+	}
+
+	num2, err := binary.ToBinary(text2)
+	if err != nil {
+		log.WithError(err).WithField("text", text2).Error("cannot convert to binary")
+		return
+	}
+
+	p1 := lab3.NewBinaryPolynom(num1)
+	p2 := lab3.NewBinaryPolynom(num2)
+
+	p := p1.Multiply(p2)
+
+	if uiw.RadioPolynom.IsChecked() {
+		uiw.Answer2.SetText(p.String())
+	}
+
+	if uiw.RadioElem.IsChecked() {
+		uiw.Answer2.SetText(binary.ToBinaryStr(p.GetNum()))
+	}
+}
+
+func (window *Window) ButtonReact(ctx context.Context) {
+	//if window.uiWindow.Lab31.IsChecked() {
+	//	window.lab31(ctx)
+	//	return
+	//}
+	//
+	//window.uiWindow.AnswerLine.SetText("")
 }
 
 func (window *Window) lab31(ctx context.Context) {
 	w := window.uiWindow
 	log := logger.GetLogger(ctx)
 
-	text := w.LineEdit.Text()
+	text := w.Line1.Text()
 
 	if text == "" {
-		w.AnswerLine.SetText("")
+		w.Answer.SetText("")
 		log.Warning("no input text")
 		return
 	}
@@ -55,14 +120,10 @@ func (window *Window) lab31(ctx context.Context) {
 	num, err := binary.ToBinary(text)
 	if err != nil {
 		log.WithError(err).WithField("text", text).Error("cannot convert to binary")
-		window.BinaryNumError()
+		w.Answer.SetText(fmt.Sprintf("cannot convert to binary"))
 		return
 	}
 
 	polynom := lab3.NewBinaryPolynom(num)
-	w.AnswerLine.SetText(polynom.String())
-}
-
-func (w *Window) BinaryNumError() {
-	w.uiWindow.AnswerLine.SetText(fmt.Sprintf("cannot convert to binary"))
+	w.Answer.SetText(polynom.String())
 }

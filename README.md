@@ -7,4 +7,4 @@
 
 ## Скриншоты
 
-![Lab3.1](https://github.com/elizarpif/goui/blob/develop/screenshots/31.png)
+![Lab3](https://github.com/elizarpif/goui/blob/develop/screenshots/3.png)

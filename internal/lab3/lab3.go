@@ -17,11 +17,17 @@ func form(num int) []int {
 }
 
 type BinaryPolynom struct {
+	num     int
 	numbers []int
 }
 
 func NewBinaryPolynom(num int) *BinaryPolynom {
-	return &BinaryPolynom{numbers: form(num)}
+	num = num % 256
+	return &BinaryPolynom{numbers: form(num), num: num}
+}
+
+func (bp *BinaryPolynom) GetNum() int {
+	return bp.num
 }
 
 func (bp *BinaryPolynom) String() string {
@@ -49,6 +55,11 @@ func (bp *BinaryPolynom) String() string {
 	return strings.Join(str, "+")
 }
 
+func (p1 *BinaryPolynom) Multiply(p2 *BinaryPolynom) *BinaryPolynom {
+	var newNum = p1.num * p2.num
+
+	return NewBinaryPolynom(newNum)
+}
 
 //func (p1 *BinaryPolynom) Multiply(p2 *BinaryPolynom) error{
 //
